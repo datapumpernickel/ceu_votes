@@ -1,0 +1,36 @@
+version: '3.8'
+services:
+  ceu_votes:
+    image: interactive4swp/ceu_votes:latest
+    ports:
+      - "5051:3838"
+    volumes:
+      - type: bind
+        source: C:/TMP_docker_data
+        target: /srv/shiny-server/01_raw_data
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: '8'
+          memory: 8000M
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3838/app"]
+      interval: 120s
+      timeout: 10s
+      retries: 3
+  example1:
+    image: pandoc_converter:1.3
+    ports:
+      - "5050:3838"
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 2000M
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3838/app"]
+      interval: 120s
+      timeout: 10s
+      retries: 3

@@ -1,0 +1,19 @@
+## build the docker container locally, with respective tag
+docker build . -t ceu_votes:1.9.3
+
+## login to dockerhub
+#docker login         
+
+## push and tag respective container to hub
+#docker tag ceu_votes:1.9.3 interactive4swp/ceu_votes:1.9.3
+#docker push interactive4swp/ceu_votes:1.9.3
+
+## do it again, so that it is also recorded under latest
+docker tag ceu_votes:1.9.3 interactive4swp/ceu_votes:latest 
+docker push interactive4swp/ceu_votes:latest
+
+## on the strato server, run compose command
+docker-compose up -d
+
+## old run commant, not necessary anymore, becuase all in compose file
+docker run -d --mount type=bind,source=C:/TMP_docker_data,target=/srv/shiny-server/01_raw_data -p 3838:3838 ceu_votes:1.9.3

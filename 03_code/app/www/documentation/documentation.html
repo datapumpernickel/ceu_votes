@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<meta name="author" content="by Paul Bochtler, Rebecca Majewski, Nicolai von Ondarza, Dominik Rehbaum" />
+
+
+<title>Documentation European Union Council Tracker</title>
+
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
+<script>$(document).ready(function(){
+    if (typeof $('[data-toggle="tooltip"]').tooltip === 'function') {
+        $('[data-toggle="tooltip"]').tooltip();
+    }
+    if ($('[data-toggle="popover"]').popover === 'function') {
+        $('[data-toggle="popover"]').popover();
+    }
+});
+</script>
+<style type="text/css">
+.lightable-minimal {
+border-collapse: separate;
+border-spacing: 16px 1px;
+width: 100%;
+margin-bottom: 10px;
+}
+.lightable-minimal td {
+margin-left: 5px;
+margin-right: 5px;
+}
+.lightable-minimal th {
+margin-left: 5px;
+margin-right: 5px;
+}
+.lightable-minimal thead tr:last-child th {
+border-bottom: 2px solid #00000050;
+empty-cells: hide;
+}
+.lightable-minimal tbody tr:first-child td {
+padding-top: 0.5em;
+}
+.lightable-minimal.lightable-hover tbody tr:hover {
+background-color: #f5f5f5;
+}
+.lightable-minimal.lightable-striped tbody tr:nth-child(even) {
+background-color: #f5f5f5;
+}
+.lightable-classic {
+border-top: 0.16em solid #111111;
+border-bottom: 0.16em solid #111111;
+width: 100%;
+margin-bottom: 10px;
+margin: 10px 5px;
+}
+.lightable-classic tfoot tr td {
+border: 0;
+}
+.lightable-classic tfoot tr:first-child td {
+border-top: 0.14em solid #111111;
+}
+.lightable-classic caption {
+color: #222222;
+}
+.lightable-classic td {
+padding-left: 5px;
+padding-right: 5px;
+color: #222222;
+}
+.lightable-classic th {
+padding-left: 5px;
+padding-right: 5px;
+font-weight: normal;
+color: #222222;
+}
+.lightable-classic thead tr:last-child th {
+border-bottom: 0.10em solid #111111;
+}
+.lightable-classic.lightable-hover tbody tr:hover {
+background-color: #F9EEC1;
+}
+.lightable-classic.lightable-striped tbody tr:nth-child(even) {
+background-color: #f5f5f5;
+}
+.lightable-classic-2 {
+border-top: 3px double #111111;
+border-bottom: 3px double #111111;
+width: 100%;
+margin-bottom: 10px;
+}
+.lightable-classic-2 tfoot tr td {
+border: 0;
+}
+.lightable-classic-2 tfoot tr:first-child td {
+border-top: 3px double #111111;
+}
+.lightable-classic-2 caption {
+color: #222222;
+}
+.lightable-classic-2 td {
+padding-left: 5px;
+padding-right: 5px;
+color: #222222;
+}
+.lightable-classic-2 th {
+padding-left: 5px;
+padding-right: 5px;
+font-weight: normal;
+color: #222222;
+}
+.lightable-classic-2 tbody tr:last-child td {
+border-bottom: 3px double #111111;
+}
+.lightable-classic-2 thead tr:last-child th {
+border-bottom: 1px solid #111111;
+}
+.lightable-classic-2.lightable-hover tbody tr:hover {
+background-color: #F9EEC1;
+}
+.lightable-classic-2.lightable-striped tbody tr:nth-child(even) {
+background-color: #f5f5f5;
+}
+.lightable-material {
+min-width: 100%;
+white-space: nowrap;
+table-layout: fixed;
+font-family: Roboto, sans-serif;
+border: 1px solid #EEE;
+border-collapse: collapse;
+margin-bottom: 10px;
+}
+.lightable-material tfoot tr td {
+border: 0;
+}
+.lightable-material tfoot tr:first-child td {
+border-top: 1px solid #EEE;
+}
+.lightable-material th {
+height: 56px;
+padding-left: 16px;
+padding-right: 16px;
+}
+.lightable-material td {
+height: 52px;
+padding-left: 16px;
+padding-right: 16px;
+border-top: 1px solid #eeeeee;
+}
+.lightable-material.lightable-hover tbody tr:hover {
+background-color: #f5f5f5;
+}
+.lightable-material.lightable-striped tbody tr:nth-child(even) {
+background-color: #f5f5f5;
+}
+.lightable-material.lightable-striped tbody td {
+border: 0;
+}
+.lightable-material.lightable-striped thead tr:last-child th {
+border-bottom: 1px solid #ddd;
+}
+.lightable-material-dark {
+min-width: 100%;
+white-space: nowrap;
+table-layout: fixed;
+font-family: Roboto, sans-serif;
+border: 1px solid #FFFFFF12;
+border-collapse: collapse;
+margin-bottom: 10px;
+background-color: #363640;
+}
+.lightable-material-dark tfoot tr td {
+border: 0;
+}
+.lightable-material-dark tfoot tr:first-child td {
+border-top: 1px solid #FFFFFF12;
+}
+.lightable-material-dark th {
+height: 56px;
+padding-left: 16px;
+padding-right: 16px;
+color: #FFFFFF60;
+}
+.lightable-material-dark td {
+height: 52px;
+padding-left: 16px;
+padding-right: 16px;
+color: #FFFFFF;
+border-top: 1px solid #FFFFFF12;
+}
+.lightable-material-dark.lightable-hover tbody tr:hover {
+background-color: #FFFFFF12;
+}
+.lightable-material-dark.lightable-striped tbody tr:nth-child(even) {
+background-color: #FFFFFF12;
+}
+.lightable-material-dark.lightable-striped tbody td {
+border: 0;
+}
+.lightable-material-dark.lightable-striped thead tr:last-child th {
+border-bottom: 1px solid #FFFFFF12;
+}
+.lightable-paper {
+width: 100%;
+margin-bottom: 10px;
+color: #444;
+}
+.lightable-paper tfoot tr td {
+border: 0;
+}
+.lightable-paper tfoot tr:first-child td {
+border-top: 1px solid #00000020;
+}
+.lightable-paper thead tr:last-child th {
+color: #666;
+vertical-align: bottom;
+border-bottom: 1px solid #00000020;
+line-height: 1.15em;
+padding: 10px 5px;
+}
+.lightable-paper td {
+vertical-align: middle;
+border-bottom: 1px solid #00000010;
+line-height: 1.15em;
+padding: 7px 5px;
+}
+.lightable-paper.lightable-hover tbody tr:hover {
+background-color: #F9EEC1;
+}
+.lightable-paper.lightable-striped tbody tr:nth-child(even) {
+background-color: #00000008;
+}
+.lightable-paper.lightable-striped tbody td {
+border: 0;
+}
+</style>
+
+<style type="text/css">
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Documentation European Union Council
+Tracker</h1>
+<h4 class="author">by Paul Bochtler, Rebecca Majewski, Nicolai von
+Ondarza, Dominik Rehbaum</h4>
+<h4 class="date">Last updated on: 12 July 2023</h4>
+
+
+
+<div id="aim-of-the-council-tracker" class="section level2">
+<h2>Aim of the Council Tracker <a name="aim"></a></h2>
+<p>The interactive dashboard “Council Tracker” provides users with a
+comprehensive tool to analyse and understand voting patterns in the
+Council of the European Union (EU). The dashboard aims to enhance the
+transparency and accessibility of voting dynamics within the Council
+through interactive visualisations and data exploration features. Users
+can illustrate voting patterns, identify alliances or divisions among
+member states, and gain insights into the positions taken on specific
+policy issues. The data is limited to voting records from 2010 onward
+that have been made public by the Council of the EU. The current version
+of the Council Tracker provides three options.</p>
+<p><u><em>Consensus Rate</em></u>: The feature enables users to explore
+the number of votes that have been passed where no member state was in
+opposition to the vote. Abstentions are not counted as opposition. Users
+can explore consensus rate trends across different years and policy
+areas, enabling them to identify areas of high or low consensus and
+track changes over time.</p>
+<p><u><em>Minority Voting</em></u>: The feature aggregates how often
+member states were in the minority position in Council votes per year
+and policy area. Minority positions are separated according to instances
+of “no votes”, “abstentions”, and “non-participation” in votes, for
+example in the case of Denmark for votes on Schengen, for which it has
+an opt-out. Users can compare the minority votes between individual as
+well as groups of member states as well as between different policy
+areas.</p>
+<p><u><em>All Votes</em></u>: The feature offers an overview of the
+total number of public votes in the Council of the EU every year from
+2010 onward across different policy areas in the form of a bar chart. It
+also offers a table with all official voting documents, including the
+individual votes of EU member states.</p>
+</div>
+<div id="methodology-and-source" class="section level2">
+<h2>Methodology and Source <a name="method"></a></h2>
+<p>The data used for the Council Tracker is sourced from official
+records of EU Council meetings and voting outcomes. The dataset is based
+on a SPARQL query compiled by the European Commission’s IT-department in
+response to an e-mail inquiry made by SWP’s data analyst. All public
+votes and corresponding metadata were compiled. The SPARQL query was
+modified to reflect the publicly available voting results provided on
+the website of the Council of the EU. The query was transmitted to the
+Open Data Interface: <a href="http://data.consilium.europa.eu/sparql" class="uri">http://data.consilium.europa.eu/sparql</a> A smaller sample
+of the dataset was manually compared to the voting results in the public
+voting register to cross-check the dataset. In total, 1436 votes were
+recorded across all Council configurations. Although no discrepancies
+were found, errors made by the EU during the transfer from meeting
+minutes to the voting sheet cannot be ruled out. In addition to the
+subdivision into EU member states and years, a subdivision into policy
+fields can also be viewed on the dashboard. According to the EuroVoc
+policy field, the Council Tracker differentiates the following policy
+areas:</p>
+<ul>
+<li>Agriculture, Consumer Affairs, Culture, Economy, Education,
+Employment, Energy, Environment, Finances, Fisheries, Foreign Affairs,
+Health, Industry, Institutional, Internal Market, Justice and Home
+Affairs, Research, Social Policy, Space, Telecommunication, Transport,
+Youth</li>
+</ul>
+<p>Policy areas represent different domains or subjects on which
+decisions are made, while Council configurations refer to the specific
+configuration of the Council that took the actual vote, for example the
+General Affairs Council, the Foreign Affairs Council, or the Economic
+and Financial Affairs Council. It is worth noting that sometimes
+multiple policy areas are voted upon within a single Council formation ,
+and that the Council formation legally does not necessarily need to
+overlap with the policy area of a decision. For instance, if a decision
+is taken without debate, the ECOFIN Council could legally also take a
+decision regarding EU agriculture policy. For the purpose of this
+Council Tracker, the primary identifier used to categorise the voting
+data is the policy area as noted in the EU’s database. There is no
+independent check on whether the policy area is the most suitable. This
+ensures a clear and streamlined approach to visualising and analysing EU
+voting outcomes across various policy domains.</p>
+</div>
+<div id="country-codes" class="section level2">
+<h2>Country Codes <a name="codes"></a></h2>
+<p>For a better overview, the Council Tracker uses the following country
+codes in its tables and graphs:</p>
+<!-- ```{r, echo = F, warning=F, message=F} -->
+<!-- data <- tibble( -->
+<!--   country = c( -->
+<!--     "Belgium", -->
+<!--     "Bulgaria", -->
+<!--     "Czechia", -->
+<!--     "Denmark", -->
+<!--     "Germany", -->
+<!--     "Estonia", -->
+<!--     "Ireland", -->
+<!--     "Greece", -->
+<!--     "Spain", -->
+<!--     "France", -->
+<!--     "Croatia", -->
+<!--     "Italy", -->
+<!--     "Cyprus", -->
+<!--     "Latvia", -->
+<!--     "Lithuania", -->
+<!--     "Luxembourg", -->
+<!--     "Hungary", -->
+<!--     "Malta", -->
+<!--     "Netherlands", -->
+<!--     "Austria", -->
+<!--     "Poland", -->
+<!--     "Portugal", -->
+<!--     "Romania", -->
+<!--     "Slovenia", -->
+<!--     "Slovakia", -->
+<!--     "Finland", -->
+<!--     "Sweden" -->
+<!--   ), -->
+<!--   c( -->
+<!--     "(BE)", -->
+<!--     "(BG)", -->
+<!--     "(CZ)", -->
+<!--     "(DK)", -->
+<!--     "(DE)", -->
+<!--     "(EE)", -->
+<!--     "(IE)", -->
+<!--     "(EL)", -->
+<!--     "(ES)", -->
+<!--     "(FR)", -->
+<!--     "(HR)", -->
+<!--     "(IT)", -->
+<!--     "(CY)", -->
+<!--     "(LV)", -->
+<!--     "(LT)", -->
+<!--     "(LU)", -->
+<!--     "(HU)", -->
+<!--     "(MT)", -->
+<!--     "(NL)", -->
+<!--     "(AT)", -->
+<!--     "(PL)", -->
+<!--     "(PT)", -->
+<!--     "(RO)", -->
+<!--     "(SI)", -->
+<!--     "(SK)", -->
+<!--     "(FI)", -->
+<!--     "(SE)" -->
+<!--   ) -->
+<!-- ) -->
+<!-- knitr::kable(data, col.names = c("Country", "Code"))  |> kableExtra::scroll_box() -->
+<!-- ``` -->
+<table>
+<colgroup>
+<col width="15%" />
+<col width="9%" />
+<col width="13%" />
+<col width="9%" />
+<col width="19%" />
+<col width="9%" />
+<col width="15%" />
+<col width="9%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th> </th>
+<th> </th>
+<th> </th>
+<th> </th>
+<th> </th>
+<th> </th>
+<th> </th>
+<th> </th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Belgium</td>
+<td>(BE)</td>
+<td>Greece</td>
+<td>(EL)</td>
+<td>Lithuania</td>
+<td>(LT)</td>
+<td>Portugal</td>
+<td>(PT)</td>
+</tr>
+<tr class="even">
+<td>Bulgaria</td>
+<td>(BG)</td>
+<td>Spain</td>
+<td>(ES)</td>
+<td>Luxembourg</td>
+<td>(LU)</td>
+<td>Romania</td>
+<td>(RO)</td>
+</tr>
+<tr class="odd">
+<td>Czechia</td>
+<td>(CZ)</td>
+<td>France</td>
+<td>(FR)</td>
+<td>Hungary</td>
+<td>(HU)</td>
+<td>Slovenia</td>
+<td>(SI)</td>
+</tr>
+<tr class="even">
+<td>Denmark</td>
+<td>(DK)</td>
+<td>Croatia</td>
+<td>(HR)</td>
+<td>Malta</td>
+<td>(MT)</td>
+<td>Slovakia</td>
+<td>(SK)</td>
+</tr>
+<tr class="odd">
+<td>Germany</td>
+<td>(DE)</td>
+<td>Italy</td>
+<td>(IT)</td>
+<td>Netherlands</td>
+<td>(NL)</td>
+<td>Finland</td>
+<td>(FI)</td>
+</tr>
+<tr class="even">
+<td>Estonia</td>
+<td>(EE)</td>
+<td>Cyprus</td>
+<td>(CY)</td>
+<td>Austria</td>
+<td>(AT)</td>
+<td>Sweden</td>
+<td>(SE)</td>
+</tr>
+<tr class="odd">
+<td>Ireland</td>
+<td>(IE)</td>
+<td>Latvia</td>
+<td>(LV)</td>
+<td>Poland</td>
+<td>(PL)</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="limitations" class="section level2">
+<h2>Limitations <a name="limitations"></a></h2>
+<ul>
+<li>The availability and completeness of voting data depends on the data
+provided by the Council of the EU.</li>
+<li>The Council only makes some of its votes public. Since the Treaty of
+Lisbon, legislative votes have to be made public. However, most other
+votes are still not made public, including votes on the Council’s
+negotiation position within legislative files. As such, the data
+compiled and visualised in the Council Tracker provides only the
+publicised part of the voting behaviour in the Council.</li>
+<li>The voting behaviour analysis is based on aggregated data and the
+vote on the final compromise. As such, it may not capture the diverse
+perspectives and nuances of individual member states’ positions
+accurately.</li>
+<li>The Council Tracker does not take into account the contextual
+factors that influence voting behaviour, such as political dynamics,
+negotiations, and external influences.</li>
+</ul>
+</div>
+<div id="code-and-data" class="section level2">
+<h2>Code and Data <a name="code"></a></h2>
+<p>The corresponding raw datasets have been published at GESIS in
+different versions. This dashboard uses the latest version of the data
+by default.</p>
+<table class=" lightable-minimal" style="font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+DOI
+</th>
+<th style="text-align:left;">
+version
+</th>
+<th style="text-align:left;">
+title
+</th>
+<th style="text-align:left;">
+publication year
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<a href="https://doi.org/10.7802/2560" class="uri">https://doi.org/10.7802/2560</a>
+</td>
+<td style="text-align:left;">
+2.0
+</td>
+<td style="text-align:left;">
+Public Voting Data of the Council of the EU
+</td>
+<td style="text-align:left;">
+2023
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<a href="https://doi.org/10.7802/2344" class="uri">https://doi.org/10.7802/2344</a>
+</td>
+<td style="text-align:left;">
+1.0
+</td>
+<td style="text-align:left;">
+Public Voting Data of the Council of the EU
+</td>
+<td style="text-align:left;">
+2021
+</td>
+</tr>
+</tbody>
+</table>
+<p>The code to generate the dashboard in R Shiny is publicly accessible
+and archived at:</p>
+</div>
+<div id="further-reading" class="section level2">
+<h2>Further Reading <a name="readings"></a></h2>
+<p>Bendiek, A., Kempin, R., &amp; Ondarza, N. V. (2018). Qualified
+majority voting and flexible integration for a more effective CFSP? A
+critical examination of the EU’s options. SWP Comment C25/2018. Berlin:
+Stiftung Wissenschaft und Politik.</p>
+<p>Bendiek, A., Ålander, M., &amp; Bochtler, P. (2020). CFSP: The
+capability-expectation gap revisited. SWP Comment 58/2020. Berlin:
+Stiftung Wissenschaft und Politik.</p>
+<p>Mintel, J., &amp; Ondarza, N. V. (2021). Consensus per video?
+Decision-making in the Council of the EU during the Covid-19 pandemic.
+SWP Working Paper 05/2021. Berlin: Stiftung Wissenschaft und
+Politik.</p>
+<p>Mintel, J., &amp; Ondarza, N. V. (2022). More EU decisions by
+qualified majority voting – but how? Legal and political options for
+extending qualified majority voting. SWP Comment 61/2022. Berlin:
+Stiftung Wissenschaft und Politik.</p>
+<p>Bendiek, A. (2023). Majority voting on foreign policy decisions: A
+transitional approach needs parliamentary oversight. Point of View.
+Berlin: Stiftung Wissenschaft und Politik.</p>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
