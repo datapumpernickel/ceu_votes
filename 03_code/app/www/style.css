@@ -1,0 +1,41 @@
+.dataTables_wrapper .dataTables_filter {
+    float: left;
+    text-align: left;
+  }
+  
+.dataTables_wrapper .dataTables_filter input {
+    margin-left: 0.5em;
+    display: inline-block;
+    width: auto;
+  }
+
+table.dataTable thead th {
+    font-weight: bold;
+    background-color: #336b91;
+    color: #fff;
+  }
+  
+div.dt-buttons {
+    float: right;
+  }
+
+.navbar-brand {
+  color: #fff !important;
+}
+
+.hint--info:after {
+          background-color: var(--bs-info);
+          text-shadow: 0 -1px 0px var(--bs-info);
+        }
+.hint--info.hint--bottom:before {
+          border-bottom-color: var(--bs-info)
+        }
+.hint--info.hint--left:before {
+          border-left-color: var(--bs-info)
+        }
+.hint--info.hint--top:before {
+          border-top-color: var(--bs-info)
+        }
+.hint--info.hint--right:before {
+          border-right-color: var(--bs-info)
+        }

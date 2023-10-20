@@ -1,0 +1,277 @@
+---
+title: "Documentation European Union Council Tracker"
+author: "by Paul Bochtler, Rebecca Majewski, Nicolai von Ondarza, Dominik Rehbaum"
+date: "Last updated on: 12 July 2023"
+output:
+  html_document:
+    theme: null
+    highlight: null
+params:
+    nrows: "stest"
+---
+
+
+## Aim of the Council Tracker <a name="aim"></a>
+
+The interactive dashboard "Council Tracker" provides users with a comprehensive tool to analyse and understand voting patterns in the Council of the European Union (EU). The dashboard aims to enhance the transparency and accessibility of voting dynamics within the Council through interactive visualisations and data exploration features. Users can illustrate voting patterns, identify alliances or divisions among member states, and gain insights into the positions taken on specific policy issues. The data is limited to voting records from 2010 onward that have been made public by the Council of the EU. The current version of the Council Tracker provides three options.
+
+[*Consensus Rate*]{.underline}: The feature enables users to explore the number of votes that have been passed where no member state was in opposition to the vote. Abstentions are not counted as opposition. Users can explore consensus rate trends across different years and policy areas, enabling them to identify areas of high or low consensus and track changes over time.
+
+[*Minority Voting*]{.underline}: The feature aggregates how often member states were in the minority position in Council votes per year and policy area. Minority positions are separated according to instances of "no votes", "abstentions", and "non-participation" in votes, for example in the case of Denmark for votes on Schengen, for which it has an opt-out. Users can compare the minority votes between individual as well as groups of member states as well as between different policy areas.
+
+[*All Votes*]{.underline}: The feature offers an overview of the total number of public votes in the Council of the EU every year from 2010 onward across different policy areas in the form of a bar chart. It also offers a table with all official voting documents, including the individual votes of EU member states.
+
+## Methodology and Source <a name="method"></a>
+
+<!-- <div style="float: right; width: 30%; margin-right: 10px; margin-left: 20px"> -->
+
+<!-- ```{r chunk, echo = F, warning=F, message=F} -->
+
+
+<!-- something <- dplyr::tibble( -->
+<!--   country = c( -->
+<!--     "Belgium", -->
+<!--     "Bulgaria", -->
+<!--     "Czechia", -->
+<!--     "Denmark", -->
+<!--     "Germany", -->
+<!--     "Estonia", -->
+<!--     "Ireland", -->
+<!--     "Greece", -->
+<!--     "Spain", -->
+<!--     "France", -->
+<!--     "Croatia", -->
+<!--     "Italy", -->
+<!--     "Cyprus", -->
+<!--     "Latvia", -->
+<!--     "Lithuania", -->
+<!--     "Luxembourg", -->
+<!--     "Hungary", -->
+<!--     "Malta", -->
+<!--     "Netherlands", -->
+<!--     "Austria", -->
+<!--     "Poland", -->
+<!--     "Portugal", -->
+<!--     "Romania", -->
+<!--     "Slovenia", -->
+<!--     "Slovakia", -->
+<!--     "Finland", -->
+<!--     "Sweden" -->
+<!--   ), -->
+<!--   abbreviation = c( -->
+<!--     "BE", -->
+<!--     "BG", -->
+<!--     "CZ", -->
+<!--     "DK", -->
+<!--     "DE", -->
+<!--     "EE", -->
+<!--     "IE", -->
+<!--     "EL", -->
+<!--     "ES", -->
+<!--     "FR", -->
+<!--     "HR", -->
+<!--     "IT", -->
+<!--     "CY", -->
+<!--     "LV", -->
+<!--     "LT", -->
+<!--     "LU", -->
+<!--     "HU", -->
+<!--     "MT", -->
+<!--     "NL", -->
+<!--     "AT", -->
+<!--     "PL", -->
+<!--     "PT", -->
+<!--     "RO", -->
+<!--     "SI", -->
+<!--     "SK", -->
+<!--     "FI", -->
+<!--     "SE" -->
+<!--   ) -->
+<!-- ) -->
+<!-- DT::datatable( -->
+<!--   something -->
+<!-- ) -->
+<!-- ``` -->
+<!-- **Country Codes:** For a better overview, the Council Tracker uses these country codes in its tables and graphs. -->
+
+<!-- </div> -->
+
+
+The data used for the Council Tracker is sourced from official records of EU Council meetings and voting outcomes. The dataset is based on a SPARQL query compiled by the European Commission's IT-department in response to an e-mail inquiry made by SWP's data analyst. All public votes and corresponding metadata were compiled. The SPARQL query was modified to reflect the publicly available voting results provided on the website of the Council of the EU. The query was transmitted to the Open Data Interface: <http://data.consilium.europa.eu/sparql> A smaller sample of the dataset was manually compared to the voting results in the public voting register to cross-check the dataset. In total, `r params$nrows` votes were recorded across all Council configurations. Although no discrepancies were found, errors made by the EU during the transfer from meeting minutes to the voting sheet cannot be ruled out. In addition to the subdivision into EU member states and years, a subdivision into policy fields can also be viewed on the dashboard. According to the EuroVoc policy field, the Council Tracker differentiates the following policy areas:
+
+
+
+
+
+-   Agriculture, Consumer Affairs, Culture, Economy, Education, Employment, Energy, Environment, Finances, Fisheries, Foreign Affairs, Health, Industry, Institutional, Internal Market, Justice and Home Affairs, Research, Social Policy, Space, Telecommunication, Transport, Youth
+
+Policy areas represent different domains or subjects on which decisions are made, while Council configurations refer to the specific configuration of the Council that took the actual vote, for example the General Affairs Council, the Foreign Affairs Council, or the Economic and Financial Affairs Council. It is worth noting that sometimes multiple policy areas are voted upon within a single Council formation , and that the Council formation legally does not necessarily need to overlap with the policy area of a decision. For instance, if a decision is taken without debate, the ECOFIN Council could legally also take a decision regarding EU agriculture policy. For the purpose of this Council Tracker, the primary identifier used to categorise the voting data is the policy area as noted in the EU's database. There is no independent check on whether the policy area is the most suitable. This ensures a clear and streamlined approach to visualising and analysing EU voting outcomes across various policy domains. Missing values indicate that the Council did not assign a specific policy area.
+
+```{r, echo = F, warning=F, message=F}
+
+
+data <- dplyr::tibble(
+  country = c(
+    "Belgium",
+    "Bulgaria",
+    "Czechia",
+    "Denmark",
+    "Germany",
+    "Estonia",
+    "Ireland",
+    "Greece",
+    "Spain"),
+
+
+  abbreviation = c(
+    "BE",
+    "BG",
+    "CZ",
+    "DK",
+    "DE",
+    "EE",
+    "IE",
+    "EL",
+    "ES"),
+    country2 = c(
+    "France",
+    "Croatia",
+    "Italy",
+    "Cyprus",
+    "Latvia",
+    "Lithuania",
+    "Luxembourg",
+    "Hungary",
+    "Malta"),
+  abbreviation2 = c(
+    "FR",
+    "HR",
+    "IT",
+    "CY",
+    "LV",
+    "LT",
+    "LU",
+    "HU",
+    "MT"), 
+    country3 = c(
+    "Netherlands",
+    "Austria",
+    "Poland",
+    "Portugal",
+    "Romania",
+    "Slovenia",
+    "Slovakia",
+    "Finland",
+    "Sweden"
+  ),
+  abbreviation3 = c(
+    "NL",
+    "AT",
+    "PL",
+    "PT",
+    "RO",
+    "SI",
+    "SK",
+    "FI",
+    "SE"
+  )
+)
+
+library(gt)
+data %>% 
+  gt() %>%
+  tab_header(
+    title = "Country Code Abbreviations"
+  ) %>% 
+  tab_options(column_labels.hidden = TRUE) |>
+  tab_style(
+    style = list(
+      cell_borders(
+        sides = c("top", "bottom"),
+        color = "grey20",
+        weight = px(1)
+      ),
+      cell_borders(
+        sides = c("right"),
+        color = "grey20",
+        weight = px(2)
+      )
+    ),
+    locations = cells_body(columns = starts_with("abbrev"))) |>
+  tab_style(
+    style = list(
+      cell_borders(
+        sides = c("top", "bottom"),
+        color = "grey20",
+        weight = px(1)
+      ),
+      cell_borders(
+        sides = c("left"),
+        color = "grey20",
+        weight = px(2)
+      )
+    ),
+    locations = cells_body(columns = starts_with("count")))
+```
+
+
+## Limitations <a name="limitations"></a>
+
+-   The availability and completeness of voting data depends on the data provided by the Council of the EU.
+-   The Council only makes some of its votes public. Since the Treaty of Lisbon, legislative votes have to be made public. However, most other votes are still not made public, including votes on the Council's negotiation position within legislative files. As such, the data compiled and visualised in the Council Tracker provides only the publicised part of the voting behaviour in the Council.
+-   The voting behaviour analysis is based on aggregated data and the vote on the final compromise. As such, it may not capture the diverse perspectives and nuances of individual member states' positions accurately.
+-   The Council Tracker does not take into account the contextual factors that influence voting behaviour, such as political dynamics, negotiations, and external influences.
+
+
+
+
+
+
+## Code and Data <a name="code"></a>
+
+The corresponding raw datasets have been published at GESIS in different versions. This dashboard uses the latest version of the data by default. 
+
+
+```{r, echo = F, message=F, warning=F}
+data <- dplyr::tibble(doi = c("https://doi.org/10.7802/2560","https://doi.org/10.7802/2344"),
+               version = c("2.0","1.0"),
+               title = c("Public Voting Data of the Council of the EU","Public Voting Data of the Council of the EU"),
+               publication_year = c("2023","2021"))
+
+knitr::kable(data,col.names = c("DOI","version","title","publication year")) |> 
+  kableExtra::kable_minimal()
+```
+
+The code to generate the dashboard in R Shiny is publicly accessible and archived on github, but also released on zenodo and to be referenced with the respective DOI: 
+
+```{r, echo = F, message=F, warning=F}
+data <- dplyr::tibble(doi = c("https://doi.org/10.5281/zenodo.8189353"),
+               version = c("v0.1.0-alpha"),
+               title = c("ceu_votes"),
+               publication_year = c("2023"))
+
+knitr::kable(data,col.names = c("DOI","version","title","publication year")) |> 
+  kableExtra::kable_minimal()
+``` 
+
+You can clone the repository with: 
+```{r, eval=F}
+git clone https://github.com/swp-berlin/ceu_votes.git
+```
+
+
+
+## Further Reading <a name="readings"></a>
+
+Bendiek, A., Kempin, R., & Ondarza, N. V. (2018). Qualified majority voting and flexible integration for a more effective CFSP? A critical examination of the EU's options. SWP Comment C25/2018. Berlin: Stiftung Wissenschaft und Politik.
+
+Bendiek, A., Ålander, M., & Bochtler, P. (2020). CFSP: The capability-expectation gap revisited. SWP Comment 58/2020. Berlin: Stiftung Wissenschaft und Politik.
+
+Mintel, J., & Ondarza, N. V. (2021). Consensus per video? Decision-making in the Council of the EU during the Covid-19 pandemic. SWP Working Paper 05/2021. Berlin: Stiftung Wissenschaft und Politik.
+
+Mintel, J., & Ondarza, N. V. (2022). More EU decisions by qualified majority voting -- but how? Legal and political options for extending qualified majority voting. SWP Comment 61/2022. Berlin: Stiftung Wissenschaft und Politik.
+
+Bendiek, A. (2023). Majority voting on foreign policy decisions: A transitional approach needs parliamentary oversight. Point of View. Berlin: Stiftung Wissenschaft und Politik.
+
+
+
